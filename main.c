@@ -134,11 +134,14 @@ void inventoryValueReport(void);
 void readString(char text[], int size);
 float readNonNegativeFloat(void);
 
+void loadSampleProducts(void);
+
 int main(void)
 {
     int choice;
 
     displayWelcomeScreen();
+    loadSampleProducts();
 
     do
     {
@@ -743,4 +746,28 @@ void inventoryManagement(void)
         }
 
     } while (choice != 9);
+}
+
+void loadSampleProducts(void)
+{
+    Product sampleProducts[] =
+    {
+        {101, "Miniket Rice 5kg", "Groceries", 680.0f, 620.0f, 25, 10},
+        {102, "Fresh Milk 1L", "Dairy", 100.0f, 90.0f, 15, 10},
+        {103, "Coca Cola 2L", "Beverages", 180.0f, 165.0f, 30, 10},
+        {104, "Shampoo 400ml", "Personal Care", 450.0f, 400.0f, 12, 5},
+        {105, "Dishwashing Liquid", "Cleaning", 220.0f, 195.0f, 8, 10},
+        {106, "Ballpoint Pen Pack", "Stationery", 120.0f, 100.0f, 20, 5},
+        {107, "Frying Pan", "Kitchen", 850.0f, 760.0f, 7, 5},
+        {108, "Baby Diapers Pack", "Baby Care", 1250.0f, 1120.0f, 9, 5}
+    };
+
+    int sampleCount = sizeof(sampleProducts) / sizeof(sampleProducts[0]);
+
+    for (int i = 0; i < sampleCount; i++)
+    {
+        products[i] = sampleProducts[i];
+    }
+
+    productCount = sampleCount;
 }
