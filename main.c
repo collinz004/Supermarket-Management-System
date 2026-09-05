@@ -127,9 +127,7 @@ int readInteger(void)
 void onlineShopping(void);
 void inStoreCheckout(void);
 void staffLogin(void);
-
 void inventoryManagement(void);
-
 void addProduct(void);
 void displayProducts(void);
 void searchProduct(void);
@@ -138,30 +136,24 @@ void deleteProduct(void);
 void sortProducts(void);
 void lowStockReport(void);
 void inventoryValueReport(void);
-
 void readString(char text[], int size);
 float readNonNegativeFloat(void);
-
 void loadSampleProducts(void);
-
 int findProductById(int id);
 void addToCart(Transaction *cart);
 void viewCart(Transaction *cart);
 void onlineCheckout(Transaction *cart);
-
 void calculateTransactionTotal(Transaction *transaction);
 void saveTransaction(Transaction *transaction);
-
 void loadSampleUsers(void);
-
 int authenticateUser(char username[], char password[]);
 void staffMenu(int userIndex);
 void viewOrders(void);
 void updateOrderStatus(void);
-
 void startInStoreSale(void);
 void addItemToTransaction(Transaction *sale);
 void completeInStoreSale(Transaction *sale);
+int productIdExists(int id);
 
 int main(void)
 {
@@ -580,6 +572,19 @@ float readNonNegativeFloat(void)
     return value;
 }
 
+int productIdExists(int id)
+{
+    for (int i = 0; i < productCount; i++)
+    {
+        if (products[i].id == id)
+        {
+            return 1;
+        }
+    }
+
+    return 0;
+}
+
 void addProduct(void)
 {
     Product newProduct;
@@ -594,6 +599,12 @@ void addProduct(void)
 
     printf("Product ID: ");
     newProduct.id = readInteger();
+
+    if (productIdExists(newProduct.id))
+    {
+        printf("A product with this ID already exists.\n");
+        return;
+    }
 
     printf("Product name: ");
     readString(newProduct.name, sizeof(newProduct.name));
