@@ -1,0 +1,8 @@
+101|Miniket Rice 5kg|Groceries|680.00|620.00|25|10
+102|Fresh Milk 1L|Dairy|100.00|90.00|15|10
+103|Coca Cola 2L|Beverages|180.00|165.00|30|10
+104|Shampoo 400ml|Personal Care|450.00|400.00|12|5
+105|Dishwashing Liquid|Cleaning|220.00|195.00|8|10
+106|Ballpoint Pen Pack|Stationery|120.00|100.00|20|5
+107|Frying Pan|Kitchen|850.00|760.00|7|5
+108|Baby Diapers Pack|Baby Care|1250.00|1120.00|9|5
