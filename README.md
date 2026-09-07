@@ -1,36 +1,17 @@
-# UNI MART — Supermarket Management System
+# UNI MART - Supermarket Management System
 
-CSE 115L Final Project
+UNI MART is a console-based supermarket management system developed in C.
 
-UNI MART is a C-based supermarket management system designed to simulate the operations of a large general supermarket.
+The system allows supermarket staff to manage products, inventory, employees,
+and customer sales through a role-based staff login system.
 
-The system combines physical in-store checkout with online ordering and delivery simulation while maintaining a shared inventory and transaction history.
-
-## Current Development Status
-
-Development started on September 1, 2026.
-
-The project is currently in the planning and architecture stage.
-
-## Planned Features
-
-- Product and inventory management
-- Regular and wholesale purchasing
-- In-store checkout
-- Online ordering
-- Delivery order tracking
-- Employee and manager login
-- Sales history
+Main features include:
+- Staff login with Employee and Manager roles
+- Product inventory management
+- Product search and sorting
+- Regular and wholesale customer transactions
+- Wholesale pricing and discounts
+- Stock monitoring and low-stock reports
 - Sales and inventory reports
-- Low-stock detection
-- Text-file data persistence
-- Robust input validation
-- Smart restock recommendation
-
-## Technology
-
-- Language: C
-- Compiler: GCC
-- Version Control: Git / GitHub
-
-Detailed project decisions and requirements are documented in `PROJECT_PLAN.md`.
+- File-based data persistence
+- Input validation and error handling
