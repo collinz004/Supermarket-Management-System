@@ -117,7 +117,7 @@ void loadUsers(void);
 void loadTransactions(void);
 void loadAllData(void);
 void saveAllData(void);
-/* Runs the UNI MART program until the user exits. */
+
 int main(void)
 {
     int choice;

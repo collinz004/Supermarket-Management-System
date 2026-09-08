@@ -1,0 +1,36 @@
+UNI MART - REFLECTION
+CSE115L Final Project - Summer 2026
+
+The hardest part of this project was keeping the inventory and transaction
+parts connected correctly. A transaction is not just one number because it
+has the customer type, employee ID, items, quantities, prices, subtotal,
+discount, total, and date. I had to make sure that the same information was
+still correct when it was saved to a file and loaded again.
+
+One of the most stressful problems I faced was temporarily losing a large
+part of my code while I was working on the project. At first I was confused
+about which version was the latest one and whether the code I had in Git was
+the version I needed. I checked the project folder and Git history, but I
+could not find the exact version immediately. I eventually found the missing
+version using the Timeline/Local History feature in VS Code and recovered my
+work. This was a big lesson for me because I realized that saving the file
+is not enough when working on a larger project. I should keep proper
+checkpoints and use Git more consistently while making major changes.
+
+Another part that took time was testing the input handling. It was easy to
+make the program work when normal values were entered, but the project
+requirements also expect the program to survive attempts to break it. I
+tested invalid menu choices, negative quantities, missing products,
+insufficient stock, invalid confirmations, a full inventory, and missing
+data files. Some of these cases helped me find problems that were not
+visible during normal use.
+
+I also learned that compiling successfully does not mean that the program
+is completely correct. Testing the program again after saving data was
+especially useful because it showed whether the file format and loading
+logic were actually working.
+
+If I started the project again, I would plan the structures and file format
+before building most of the menu system. I would also test saving and
+loading much earlier. That would make later changes easier and would reduce
+the amount of debugging I had to do close to the deadline.

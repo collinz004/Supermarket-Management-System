@@ -1,0 +1,96 @@
+UNI MART - TESTING LOG
+CSE115L Final Project - Summer 2026
+
+The following tests were done on the final version of the program.
+
+1. Normal startup
+Input: Run the program with the sample data files in the same folder.
+Expected: The files should load and the main menu should appear.
+Result: Passed. The program loaded the products, staff accounts, and
+transactions and then showed the main menu.
+
+2. Invalid main-menu choice
+Input: Enter 99 at the main menu.
+Expected: The program should reject the choice and show the menu again.
+Result: Passed. An invalid-choice message was displayed and the menu
+continued normally.
+
+3. Wrong login details
+Input: Enter an incorrect username and password.
+Expected: Login should fail without crashing.
+Result: Passed. The program displayed "Invalid username or password."
+
+4. Employee login
+Input: rahim / 1234
+Expected: The employee menu should appear and manager-only options should
+not be available.
+Result: Passed. The employee logged in correctly and did not get the
+manager-only Inventory Value or Transaction History options.
+
+5. Manager login
+Input: manager / admin123
+Expected: The manager menu should show the extra management options.
+Result: Passed. Inventory Value and Transaction History were available.
+
+6. Search for a product that does not exist
+Input: Search for a product name that is not in the data, such as NoSuch.
+Expected: A clear not-found message and no crash.
+Result: Passed. The program reported that the product was not found.
+
+7. Negative quantity
+Input: Start a transaction and enter -5 as the quantity.
+Expected: The quantity should be rejected and the stock should not change.
+Result: Passed. The program rejected the negative quantity.
+
+8. Invalid sale confirmation
+Input: At the confirmation step, enter 9 instead of 1 or 2.
+Expected: The program should reject the value and ask for a valid
+confirmation.
+Result: Passed. The program asked again for 1 or 2.
+
+9. Full inventory
+Input: Fill the product array up to its maximum of 200 products and then
+try to add another product.
+Expected: The program should say the inventory is full and not write past
+the array.
+Result: Passed. The extra product was rejected.
+
+10. Missing data files
+Input: Run the program from a folder where the data files are missing.
+Expected: The program should report the missing files and start with empty
+data instead of crashing.
+Result: Passed. Missing files were handled correctly.
+
+11. Regular transaction and saving
+Input: Buy 2 units of product 101 as a regular customer, confirm the sale,
+exit, and run the program again.
+Expected: The correct total should be calculated, stock should decrease by
+2, and the transaction should still exist after restarting.
+Result: Passed. The sale was saved and loaded again correctly.
+
+12. Wholesale transaction
+Input: Process a transaction for a wholesale customer.
+Expected: Wholesale prices should be used and the 10% discount should be
+applied to the subtotal.
+Result: Passed. The wholesale calculation was correct.
+
+13. Duplicate product ID
+Input: Try to add a new product using an ID that already exists.
+Expected: The program should reject the duplicate ID.
+Result: Passed.
+
+14. Insufficient stock
+Input: Try to buy more units of a product than are available.
+Expected: The item should be rejected and stock should remain unchanged.
+Result: Passed.
+
+15. Cancelled transaction
+Input: Add an item to a transaction and then cancel the sale.
+Expected: Stock should not be deducted and no new transaction should be
+saved.
+Result: Passed.
+
+16. Invalid sorting choice
+Input: Enter an invalid option in the product sorting menu.
+Expected: The program should show an invalid-choice message and continue.
+Result: Passed.
