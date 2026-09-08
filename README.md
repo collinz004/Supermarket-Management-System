@@ -1,100 +1,87 @@
-UNI MART - SUPERMARKET MANAGEMENT SYSTEM
-CSE115L Final Project - Summer 2026
+# 🏪 UNI MART — Supermarket Management System
 
-Name: Sadman Saleheen
-ID  : 2421733043
-Project: Supermarket Management System
+A console-based supermarket management system written in **C** for managing supermarket inventory and processing **in-store customer transactions**.
 
-1. PROJECT OVERVIEW
+---
 
-UNI MART is a console-based supermarket management system written in C.
-The program is mainly for staff use in a physical store. Staff can manage
-the products and make transactions for customers at the store.
+## ✨ Features
 
-There are two staff roles: Employee and Manager. The system also supports
-regular and wholesale customers. Wholesale customers use the wholesale price
-of products and receive a 10% discount on the subtotal.
+### 📦 Inventory Management
 
-2. HOW TO COMPILE
+- Add new products
+- Display all products
+- Search products by ID or name
+- Update product information
+- Delete products
+- Sort products by selected fields
+- Check low-stock products
+- Calculate total inventory value
+- Supports up to **200 products**
 
-gcc -Wall -Wextra -std=c11 main.c -o uni_mart
+### 🧾 In-Store Transactions
 
-3. HOW TO RUN
+- Process physical customer purchases
+- Add multiple products to a transaction
+- Support Regular and Wholesale customers
+- Product-specific wholesale pricing
+- **10% wholesale discount** for wholesale customers
+- Check product availability before completing a sale
+- Deduct inventory only after transaction confirmation
+- Generate transaction receipts
+- Store transaction history
 
-Windows:
-.\uni_mart
+### 👥 Staff Roles
 
-The following files should be in the same folder:
-products.txt
-users.txt
-transactions.txt
+The system provides two staff roles with different access levels:
 
-4. SAMPLE LOGIN ACCOUNTS
+| Feature | Employee | Manager |
+|:---|:---:|:---:|
+| Process Transactions | ✅ | ✅ |
+| View Products | ✅ | ✅ |
+| Search Products | ✅ | ✅ |
+| Manage Inventory | ✅ | ✅ |
+| Low-Stock Report | ✅ | ✅ |
+| Inventory Value | ❌ | ✅ |
+| Transaction History | ❌ | ✅ |
 
-Employee:
-Username: rahim
-Password: 1234
+---
 
-Employee:
-Username: karim
-Password: 1234
+## 💰 Customer Types
 
-Manager:
-Username: manager
-Password: admin123
+### Regular Customer
 
-5. REQUIREMENTS R1-R8
+Regular customers purchase products using their **retail prices**.
 
-R1 - Struct and array:
-The program uses Product, User, TransactionItem, and Transaction structs.
-Products are stored in an array with space for 200 records, with
-productCount keeping track of the records currently in use.
+### Wholesale Customer
 
-R2 - Menu loop:
-The program has a main menu and separate staff, inventory, and transaction
-menus. The menus continue until the user chooses to exit or log out.
+Wholesale customers:
 
-R3 - Five distinct operations:
-The program can add, display, search, update, delete, and sort products.
-It also has low-stock and inventory-value reports, transaction processing,
-and transaction history.
+1. Use the product's **wholesale price**
+2. Receive an additional **10% discount** on the subtotal
 
-R4 - Real logic:
-The program calculates transaction subtotals and totals, chooses retail or
-wholesale prices, applies the wholesale discount, checks available stock,
-and calculates the total value of the inventory.
+The wholesale price is stored separately for each product.
 
-R5 - Search and sort:
-Products can be searched using their ID or name. The product list can be
-sorted by ID, name, retail price, or quantity. The sorting is done manually
-using selection sort rather than a library sorting function.
+---
 
-R6 - Saving and loading:
-Product, staff, and transaction data are loaded from text files when the
-program starts. The data is saved when changes are made and when the
-program exits. If a data file is missing, the program reports it and starts
-with empty data instead of crashing.
+## 🔄 Transaction Workflow
 
-R7 - Input validation:
-The program checks invalid numeric input, invalid menu choices, negative
-quantities, duplicate product IDs, unavailable products, insufficient stock,
-invalid customer types, and invalid sale confirmations.
-
-R8 - Functions:
-The program is divided into separate functions for input, login, inventory,
-transactions, reports, and file handling. main mainly controls the program
-flow instead of containing all of the logic.
-
-6. PROJECT FILES
-
-main.c              - C source code
-products.txt        - sample product data
-users.txt           - sample staff accounts
-transactions.txt    - sample transaction history
-README.txt          - project information
-TESTING.txt         - testing record
-REFLECTION.txt      - project reflection
-
-7. UNFINISHED WORK
-
-No required R1-R8 feature is unfinished in the code.
+```text
+Select Customer Type
+        ↓
+Add Products
+        ↓
+Enter Quantities
+        ↓
+Check Stock
+        ↓
+Calculate Prices
+        ↓
+Apply Wholesale Discount
+        ↓
+Review Transaction
+        ↓
+Confirm Sale
+        ↓
+Deduct Stock
+        ↓
+Save Transaction
