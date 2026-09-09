@@ -139,7 +139,7 @@ int main(void)
     return 0;
 }
 
-/* Clears characters left after an oversized text input. */
+//Clears characters left after an oversized text input.
 void clearInputLine(void)
 {
     int character;
@@ -148,11 +148,10 @@ void clearInputLine(void)
     }
 }
 
-/* Reads a valid integer from the keyboard. */
+//Reads a valid integer from the keyboard.
 int readInteger(void)
 {
-    char input[INPUT_SIZE];
-    char extra;
+    char input[INPUT_SIZE], extra;
     int value;
     while (1)
     {
@@ -164,11 +163,10 @@ int readInteger(void)
     }
 }
 
-/* Reads a valid non-negative decimal value. */
+//Reads a valid non-negative decimal value.
 float readNonNegativeFloat(void)
 {
-    char input[INPUT_SIZE];
-    char extra;
+    char input[INPUT_SIZE], extra;
     float value;
     while (1)
     {
@@ -181,7 +179,7 @@ float readNonNegativeFloat(void)
     }
 }
 
-/* Reads text safely and removes the newline. */
+// Reads text safely and removes the newline.
 void readString(char text[], int size)
 {
     int length;
@@ -197,7 +195,7 @@ void readString(char text[], int size)
         clearInputLine();
 }
 
-/* Displays the UNI MART welcome banner. */
+// Displays the UNI MART welcome banner.
 void displayWelcomeScreen(void)
 {
     printf("\n==================================================\n");
@@ -207,7 +205,7 @@ void displayWelcomeScreen(void)
     printf("==================================================\n");
 }
 
-/* Displays the main menu. */
+// Displays the main menu.
 void showMainMenu(void)
 {
     printf("\n================ MAIN MENU ================\n");
@@ -217,7 +215,7 @@ void showMainMenu(void)
     printf("Enter choice: ");
 }
 
-/* Finds a product by ID and returns its index. */
+// Finds a product by ID and returns its index.
 int findProductById(int id)
 {
     int i;
@@ -227,18 +225,16 @@ int findProductById(int id)
     return -1;
 }
 
-/* Handles staff authentication. */
+// Handles staff authentication.
 void staffLogin(void)
 {
-    char username[USERNAME_SIZE];
-    char password[PASSWORD_SIZE];
-    int userIndex;
+    char username[USERNAME_SIZE], password[PASSWORD_SIZE];
+    int userIndex = -1;
     printf("\n=============== STAFF LOGIN ===============\n");
     printf("Username: ");
     readString(username, sizeof(username));
     printf("Password: ");
     readString(password, sizeof(password));
-    userIndex = -1;
     for (int i = 0; i < userCount; i++)
     {
         if (strcmp(users[i].username, username) == 0 &&
@@ -259,11 +255,10 @@ void staffLogin(void)
     staffMenu(userIndex);
 }
 
-/* Displays features available to the logged-in staff member. */
+// Displays features available to the logged-in staff member.
 void staffMenu(int userIndex)
 {
-    int choice;
-    int manager = users[userIndex].role == ROLE_MANAGER;
+    int choice, manager = users[userIndex].role == ROLE_MANAGER;
     do
     {
         printf("\n================ STAFF MENU ================\n");
@@ -298,11 +293,10 @@ void staffMenu(int userIndex)
     while ((manager && choice != 8) || (!manager && choice != 6));
 }
 
-/* Displays inventory management operations. */
+// Displays inventory management operations.
 void inventoryManagement(int role)
 {
-    int choice;
-    int manager = role == ROLE_MANAGER;
+    int choice, manager = role == ROLE_MANAGER;
     do
     {
         printf("\n============ INVENTORY MANAGEMENT ============\n");
@@ -329,7 +323,7 @@ void inventoryManagement(int role)
     while ((manager && choice != 9) || (!manager && choice != 8));
 }
 
-/* Reads the editable fields of a product from the user. */
+// Reads the editable fields of a product from the user.
 void readProductFields(Product *product)
 {
     printf("Product name: ");
@@ -364,7 +358,7 @@ void readProductFields(Product *product)
     }
 }
 
-/* Adds a product to the inventory. */
+// Adds a product to the inventory.
 void addProduct(void)
 {
     Product product;
@@ -388,7 +382,7 @@ void addProduct(void)
     printf("Product added successfully.\n");
 }
 
-/* Displays all products in the inventory. */
+// Displays all products in the inventory.
 void displayProducts(void)
 {
     int i;
@@ -408,7 +402,7 @@ void displayProducts(void)
                products[i].quantity);
 }
 
-/* Prints one product's complete details. */
+// Prints one product's complete details.
 void printProduct(Product product)
 {
     printf("\nID: %d\n", product.id);
@@ -420,7 +414,7 @@ void printProduct(Product product)
     printf("Reorder level: %d\n", product.reorderLevel);
 }
 
-/* Searches for a product by ID or name. */
+// Searches for a product by ID or name.
 void searchProduct(void)
 {
     int choice, id, index, i;
@@ -459,11 +453,10 @@ void searchProduct(void)
     }
     printf("Invalid search option.\n");
 }
-/* Updates an existing product. */
+// Updates an existing product.
 void updateProduct(void)
 {
-    int id;
-    int index;
+    int id, index;
     printf("\nEnter product ID to update: ");
     id = readInteger();
     index = findProductById(id);
@@ -477,12 +470,10 @@ void updateProduct(void)
     printf("Product updated successfully.\n");
 }
 
-/* Deletes a product from the inventory. */
+// Deletes a product from the inventory.
 void deleteProduct(void)
 {
-    int id;
-    int index;
-    int i;
+    int id, index, i;
     printf("\nEnter product ID to delete: ");
     id = readInteger();
     index = findProductById(id);
@@ -499,7 +490,7 @@ void deleteProduct(void)
     printf("Product deleted successfully.\n");
 }
 
-/* Compares two products for the selected sort field. */
+// Compares two products for the selected sort field.
 int comesBefore(Product first, Product second, int choice)
 {
     if (choice == 1)
@@ -511,13 +502,10 @@ int comesBefore(Product first, Product second, int choice)
     return first.quantity < second.quantity;
 }
 
-/* Sorts the product array using selection sort. */
+// Sorts the product array using selection sort.
 void sortProducts(void)
 {
-    int choice;
-    int i;
-    int j;
-    int selected;
+    int choice, i, j, selected;
     Product temp;
     if (productCount < 2)
     {
@@ -550,11 +538,10 @@ void sortProducts(void)
     printf("Products sorted successfully.\n");
 }
 
-/* Displays products that are at or below reorder level. */
+// Displays products that are at or below reorder level.
 void lowStockReport(void)
 {
-    int i;
-    int found = 0;
+    int i, found = 0;
     printf("\n=============== LOW STOCK REPORT ===============\n");
     for (i = 0; i < productCount; i++)
     {
@@ -571,7 +558,7 @@ void lowStockReport(void)
         printf("No products currently require restocking.\n");
 }
 
-/* Calculates and displays the total inventory value. */
+// Calculates and displays the total inventory value.
 void inventoryValueReport(void)
 {
     int i;
@@ -582,7 +569,7 @@ void inventoryValueReport(void)
     printf("Total inventory value: %.2f\n", total);
 }
 
-/* Starts a new customer sale. */
+// Starts a new customer sale.
 void startTransaction(int employeeId)
 {
     Transaction transaction = {0};
@@ -613,7 +600,7 @@ void startTransaction(int employeeId)
     while (choice != 4);
 }
 
-/* Gets and validates the customer type for a sale. */
+// Gets and validates the customer type for a sale.
 int selectCustomerType(void)
 {
     int choice;
@@ -629,7 +616,7 @@ int selectCustomerType(void)
     return choice;
 }
 
-/* Adds one product line to the current sale. */
+// Adds one product line to the current sale.
 void addTransactionItem(Transaction *transaction)
 {
     int id, quantity, index;
@@ -669,7 +656,7 @@ void addTransactionItem(Transaction *transaction)
     printf("Product added to sale.\n");
 }
 
-/* Displays the current sale and its calculated total. */
+// Displays the current sale and its calculated total.
 void viewTransaction(Transaction *transaction)
 {
     int i;
@@ -697,7 +684,7 @@ void viewTransaction(Transaction *transaction)
     printf("Total: %.2f\n", transaction->total);
 }
 
-/* Calculates subtotal, wholesale discount, and total. */
+// Calculates subtotal, wholesale discount, and total.
 void calculateTransactionTotal(Transaction *transaction)
 {
     int i;
@@ -713,7 +700,7 @@ void calculateTransactionTotal(Transaction *transaction)
         transaction->subtotal - transaction->discount;
 }
 
-/* Checks that all items still have enough stock to complete a sale. */
+// Checks that all items still have enough stock to complete a sale.
 int transactionStockAvailable(Transaction *transaction)
 {
     for (int i = 0; i < transaction->itemCount; i++)
@@ -725,7 +712,7 @@ int transactionStockAvailable(Transaction *transaction)
     return 1;
 }
 
-/* Gets a valid yes-or-no confirmation for a sale. */
+// Gets a valid yes-or-no confirmation for a sale.
 int confirmSale(void)
 {
     int choice;
@@ -739,7 +726,7 @@ int confirmSale(void)
     return choice == 1;
 }
 
-/* Confirms a sale, updates stock, and records the transaction. */
+// Confirms a sale, updates stock, and records the transaction.
 void completeTransaction(Transaction *transaction)
 {
     if (transaction->itemCount == 0)
@@ -774,7 +761,7 @@ void completeTransaction(Transaction *transaction)
     printf("Sale completed successfully.\nTransaction ID: %d\n", transaction->transactionId);
 }
 
-/* Displays saved transaction history for the manager. */
+// Displays saved transaction history for the manager.
 void transactionHistory(void)
 {
     if (transactionCount == 0)
@@ -790,7 +777,7 @@ void transactionHistory(void)
                transactions[i].employeeId, transactions[i].total);
 }
 
-/* Saves product records to the product file. */
+// Saves product records to the product file.
 void saveProducts(void)
 {
     FILE *file;
@@ -808,7 +795,7 @@ void saveProducts(void)
                 products[i].quantity, products[i].reorderLevel);
     fclose(file);
 }
-/* Saves staff records to the user file. */
+// Saves staff records to the user file.
 void saveUsers(void)
 {
     FILE *file;
@@ -826,12 +813,11 @@ void saveUsers(void)
                 users[i].role);
     fclose(file);
 }
-/* Saves transactions and their item records. */
+// Saves transactions and their item records.
 void saveTransactions(void)
 {
     FILE *file;
-    int i;
-    int j;
+    int i, j;
     file = fopen(TRANSACTIONS_FILE, "w");
     if (file == NULL)
     {
@@ -860,7 +846,7 @@ void saveTransactions(void)
     fclose(file);
 }
 
-/* Loads product records from the product file. */
+// Loads product records from the product file.
 void loadProducts(void)
 {
     FILE *file;
@@ -884,7 +870,7 @@ void loadProducts(void)
     fclose(file);
 }
 
-/* Loads staff records from the user file. */
+// Loads staff records from the user file.
 void loadUsers(void)
 {
     FILE *file;
@@ -907,7 +893,7 @@ void loadUsers(void)
     fclose(file);
 }
 
-/* Loads transactions and their item records. */
+// Loads transactions and their item records.
 void loadTransactions(void)
 {
     FILE *file;
@@ -947,7 +933,7 @@ void loadTransactions(void)
     fclose(file);
 }
 
-/* Loads all saved data at program startup. */
+// Loads all saved data at program startup.
 void loadAllData(void)
 {
     loadProducts();
@@ -958,7 +944,7 @@ void loadAllData(void)
     printf("Loaded %d transactions.\n", transactionCount);
 }
 
-/* Saves all data before the program exits. */
+// Saves all data before the program exits.
 void saveAllData(void)
 {
     saveProducts();
@@ -966,3 +952,4 @@ void saveAllData(void)
     saveTransactions();
 }
 
+ 
